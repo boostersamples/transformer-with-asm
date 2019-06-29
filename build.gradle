@@ -1,7 +1,7 @@
 buildscript {
     ext {
         kotlin_version = '1.3.31'
-        booster_version = '0.17.0'
+        booster_version = '0.19.0'
     }
     repositories {
         mavenLocal()
@@ -19,7 +19,7 @@ buildscript {
 }
 
 
-allprojects {
+subprojects {
     repositories {
         mavenLocal()
         mavenCentral()
@@ -29,32 +29,3 @@ allprojects {
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
     }
 }
-
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.didiglobal.booster'
-
-android {
-    compileSdkVersion 28
-    defaultConfig {
-        applicationId 'io.github.boostersamples.transformer.asm'
-        minSdkVersion 18
-        targetSdkVersion 26
-        versionCode 1
-        versionName '1.0'
-        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-}
-
