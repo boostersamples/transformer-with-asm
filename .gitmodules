@@ -1,3 +1,3 @@
 [submodule "app"]
 	path = app
-	url = ../app
+	url = https://github.com/boostersamples/app.git
